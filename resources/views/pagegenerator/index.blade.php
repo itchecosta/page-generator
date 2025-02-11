@@ -1,14 +1,10 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <title>Page Generator - Gerar Páginas</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <!-- Carrega o CKEditor -->
-    <script src="https://cdn.ckeditor.com/4.22.1/standard/ckeditor.js"></script>
-</head>
-<body>
-<div class="container mt-5">
+@extends('layouts.app')
+
+@section('title', 'Gerar Conjuntos de Páginas')
+
+@section('content')
+
+<div class="container-fluid">
     <h1>Page Generator</h1>
 
     @if(session('success'))
@@ -66,8 +62,12 @@
 </div>
 
 <!-- Inicializa o CKEditor no textarea de conteúdo -->
+<script src="https://cdn.ckeditor.com/4.22.1/standard/ckeditor.js"></script>
 <script>
     CKEDITOR.replace('content_template');
 </script>
 </body>
 </html>
+@endsection
+
+

@@ -24,3 +24,16 @@ Route::put('/page-generator/{id}', [PageGeneratorController::class, 'update'])->
 Route::delete('/page-generator/{id}', [PageGeneratorController::class, 'destroy'])->name('page.generator.destroy');
 
 
+Route::prefix('page-generator')->group(function() {
+    // Rota GET para listar os conjuntos de páginas (PageSets)
+    Route::get('/page-sets', [PageGeneratorController::class, 'listPageSets'])->name('page_sets.list');
+    
+    // Rota GET para exibir o formulário de edição de um PageSet
+    Route::get('/page-set/{id}/edit', [PageGeneratorController::class, 'editPageSet'])->name('page_set.edit');
+    
+    // Rota PUT para atualizar o PageSet
+    Route::put('/page-set/{id}', [PageGeneratorController::class, 'updatePageSet'])->name('page_set.update');
+    
+    // Rota DELETE para excluir o PageSet
+    Route::delete('/page-set/{id}', [PageGeneratorController::class, 'destroyPageSet'])->name('page_set.destroy');
+});
